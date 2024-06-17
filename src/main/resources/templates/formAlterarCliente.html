@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header text-center">Alterar Cadastro
+                        Cliente
+                    </div>
+                    <div class="card-body">
+                        <form th:action="@{/cliente/alterar}" method="post"
+                              id="formCliente" name="formCliente">
+                            <div class="form-group">
+                                <label for="nome">ID:</label>
+                                <input th:text="${cliente.id}"
+                                       th:value="${cliente.id}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="id" name="id" required
+                                       hidden>
+                            </div>
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input th:value="${cliente.nome}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="nome" name="nome"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label for="celular">Celular:</label>
+                                <input th:value="${cliente.celular}"
+                                       class="form-control form-control-sm"
+                                       type="tel" id="celular" name="celular"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo Logradouro:</label>
+                                <input th:value="${cliente.endereco.tipoLogradouro}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="tipoLogradouro"
+                                       name="tipoLogradouro" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Logradouro:</label>
+                                <input th:value="${cliente.endereco.logradouro}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="logradouro"
+                                       name="logradouro" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Numero:</label>
+                                <input th:value="${cliente.endereco.numero}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="numero" name="numero"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Bairro:</label>
+                                <input th:value="${cliente.endereco.bairro}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="bairro" name="bairro"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Cidade:</label>
+                                <input th:value="${cliente.endereco.cidade}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="cidade" name="cidade"
+                                       required>
+                            </div>
+                            <div class="form-group">
+                                <label>Estado:</label>
+                                <input th:value="${cliente.endereco.estado}"
+                                       class="form-control form-control-sm"
+                                       type="text" id="estado" name="estado"
+                                       required>
+                            </div>
+                            <div class="">
+                                <button class="btn btn-primary" type="submit">
+                                    Alterar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+</body>
+
+</html>

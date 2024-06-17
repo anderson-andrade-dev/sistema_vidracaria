@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <form th:action="@{/projeto/cadProjeto}" th:method="post">
+            <div class="row">
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">Projeto</div>
+                        <div class="card-body" style="text-align: center" id="imagemProjeto"></div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nome">Nome Projeto</label>
+                        </div>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="utils">Imagem Projeto</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="url" name="url" aria-describedby="utils">
+                            <label class="custom-file-label" for="url"></label>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="divisaoHorizontal">Divisão Horizontal</label>
+                        </div>
+                        <input type="number" min="1" max="10" class="form-control" id="divisaoHorizontal"
+                               name="divisaoHorizontal">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="divisaoVertical">Divisão Vertical</label>
+                        </div>
+                        <input type="number" min="1" max="10" class="form-control" id="divisaoVertical"
+                               name="divisaoVertical">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="categoria">Escolha Categoria</label>
+                        </div>
+                        <select class="custom-select " id="categoriaId" name="categoriaId">
+                            <option th:each="categoria:${categorias}" th:value="${categoria.id}"
+                                    th:text="${categoria.nome}"></option>
+                        </select>
+                        <a th:href="@{/projeto/get_cadCategoria}" class="btn btn-outline-success">
+                            <img class="d-inline-block align-top" th:src="@{/images/iconeAdicionar.png}"
+                                 alt="" width="25" height="25" th:onclick=""></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container">
+                <div Class="row">
+                    <div class="col-2">
+                        <button class="btn btn-outline-info">voltar</button>
+                    </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="col-2" style="text-align: right">
+                        <button class="btn btn-outline-success">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+<script>
+    $('#url').on('change', function () {
+        //get the file name
+        let fileName = $(this).val().replace('C:\\fakepath\\', "");
+        $(this).next('.custom-file-label').html(fileName);
+        $("#imagemProjeto").html("<img src='/images/projetos/" + fileName + "'>");
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="categoria">Escolha Categoria</label>
+                    </div>
+                    <select class="custom-select " id="categoria">
+                        <option value="1">teste</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" id="filtro" name="filtro"
+                           placeholder="Busca Produto por Nome"/>
+                    <div class="input-group-append">
+                        <label class="input-group-text" for="filtro"><img class="d-inline-block align-top"
+                                                                          src="/images/iconeBusca.png" width="24"
+                                                                          height="24"></label>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 ">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="/images/projetos/portaAbrirBandeiraBasculante.png" alt="Imagem de capa do card" width="150">
+                        <button class="btn btn-outline-success btn-sm btn-block" >Escolha o Projeto</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="/images/projetos/portaAbrirBandeiraBasculante.png" alt="Imagem de capa do card" width="150">
+                        <button class="btn btn-outline-success btn-sm btn-block" >Escolha o Projeto</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="/images/projetos/portaAbrirBandeiraBasculante.png" alt="Imagem de capa do card" width="150">
+                        <button class="btn btn-outline-success btn-sm btn-block" >Escolha o Projeto</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <img class="card-img-top" src="/images/projetos/portaAbrirBandeiraBasculante.png" alt="Imagem de capa do card" width="150">
+                        <button class="btn btn-outline-success btn-sm btn-block" >Escolha o Projeto</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+</body>
+</html>

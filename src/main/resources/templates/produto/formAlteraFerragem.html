@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <form action="#" method="post"
+                      th:action="@{/produto/alteraFerragem}" id="formFerragem"
+                      name="formFerragem">
+                    <div class="form-group">
+                        <label for="codigo">Id</label>
+                        <input th:value="${ferragem.id}" class="form-control"
+                               type="text" placeholder="Código" id="id"
+                               name="id"
+                               required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigo">Código do Fabricante</label>
+                        <input th:value="${ferragem.codigo}"
+                               class="form-control" type="text"
+                               placeholder="Código" id="codigo" name="codigo"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição de Uso</label>
+                        <textarea th:text="${ferragem.descricao}"
+                                  class="form-control"
+                                  placeholder="Entre com a descrição de uso da ferragem!"
+                                  rows="4" cols="50" id="descricao"
+                                  name="descricao"
+                                  required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="preco">Preco de Custo</label>
+                        <input th:value="${ferragem.preco}" class="form-control"
+                               type="text" placeholder="Preço de Custo"
+                               id="preco"
+                               name="preco" required>
+                    </div>
+                    <div class="">
+                        <input class="btn btn-primary" type="submit"
+                               value="Altera">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+</body>
+</html>

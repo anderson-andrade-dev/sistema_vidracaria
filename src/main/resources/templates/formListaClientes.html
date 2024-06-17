@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<br>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col text-left font-weight-bold"><h5>
+                                Clientes Cadastrados</h5></div>
+                            <div class="col text-right"><a name="" id=""
+                                                           class="btn"
+                                                           th:href="@{/cliente/g_cadastroCliente}"
+                                                           role="button"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left"
+                                                           title="Cadastro Cliente"><img
+                                    class="d-inline-block align-top"
+                                    src="/images/iconeCliente.png"
+                                    alt="Cadastro Cliente"
+                                    width="64" height="64"></a></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="" id="tableCliente" name="tableCliente">
+                            <thead>
+                            <tr>
+                                <th class="text-left">ID</th>
+                                <th class="text-left">Nome</th>
+                                <th class="text-left">Celular</th>
+                                <th class="text-center">Ficha</th>
+                                <th class="text-center">Alterar</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-center">
+                            <tr th:each="cliente:${listaClientes}">
+                                <td class="text-left"
+                                    th:text="${cliente.id}"></td>
+                                <td class="text-left"
+                                    th:text="${cliente.nome}"></td>
+                                <td class="text-left"
+                                    th:text="${cliente.celular}"></td>
+                                <td class="text-center"><a name="" id=""
+                                                           class="btn"
+                                                           th:href="@{|/cliente/ficha?id=${cliente.id}|}"
+                                                           role="button"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left"
+                                                           title="Ficha do Cliente"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/iconeFicha.png"
+                                        alt="Ficha do Cliente" width="42"
+                                        height="42"></a></td>
+                                <td class="text-center"><a name="" id=""
+                                                           class="btn"
+                                                           th:href="@{|/cliente/g_alterarCliente?id=${cliente.id}|}"
+                                                           role="button"
+                                                           data-toggle="tooltip"
+                                                           data-placement="left"
+                                                           title="Alterar Cliente"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/iconeEditarCliente.png"
+                                        alt="Alterar Cliente"
+                                        width="42" height="42"></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+<script>
+    new DataTable('#tableCliente', {
+        info: false,
+        ordering: true,
+        paging: false,
+        scrollY: 250
+    });
+</script>
+</body>
+
+</html>

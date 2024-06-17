@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Caixa
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="|R$ ${tempoReal}|"></h5>
+
+                        <a href="#" class="btn">
+                            <img class="d-inline-block align-top"
+                                 src="/images/869027.png" alt="" width="64"
+                                 height="64"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Entradas
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="|R$ ${entradas}|"></h5>
+                        <a href="#" th:href="@{ent}" class="btn"><img
+                                class="d-inline-block align-top"
+                                src="/images/4143361.png" alt="" width="64"
+                                height="64"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Saidas
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="|R$ ${saidas}|"></h5>
+                        <a th:href="@{sai}" class="btn"><img
+                                class="d-inline-block align-top"
+                                src="/images/3375226.png" alt="" width="64"
+                                height="64"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Contas Pagas do Dia
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"
+                            th:text="|R$ ${listaContasPagasDia}|"></h5>
+                        <a href="#" th:href="@{/contas/g_adicionar}"
+                           class="btn"><img
+                                class="d-inline-block align-top"
+                                src="/images/3135706.png" alt="" width="64"
+                                height="64"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<br>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">Entradas do Dia</div>
+                    <div class="card-body">
+                        <table id="tableEntrada" name="tableEntrada"
+                               class="display" style="width:100%">
+
+                            <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th> Valor</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="entrada:${listaEntradas}">
+                                <td th:text="${#temporals.format(entrada.dataEntrada,'dd-MM-yyyy')}">
+                                    Row 1
+                                </td>
+                                <td th:text="${entrada.descricao}">
+                                    Description
+                                </td>
+                                <td th:text="|R$ ${entrada.valor}|">Valor</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">Saidas do Dia</div>
+                    <div class="card-body">
+                        <table class="" id="tableSaida" name="tableSaida">
+                            <thead class="">
+                            <tr>
+                                <th class="">Data</th>
+                                <th class="">Descrição</th>
+                                <th class=""> Valor</th>
+                            </tr>
+                            </thead>
+                            <tbody class="">
+                            <tr th:each="saida:${listaSaidas}">
+                                <td class=""
+                                    th:text="${#temporals.format(saida.dataSaida,'dd-MM-yyyy')}">
+                                    Row 1
+                                </td>
+                                <td class="" th:text="${saida.descricao}">
+                                    Description
+                                </td>
+                                <td class="" th:text="${saida.valor}">Valor
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card text-center">
+                    <div class="card-header">Pagamentos Agendados</div>
+                    <div class="card-body">
+                        <table id="tableAgendamentos" name="tableAgendamentos">
+                            <thead>
+                            <tr>
+                                <th>ID</td>
+                                <th>Data Vencimento</th>
+                                <th>Data Reagendamento</th>
+                                <th>Descricão</th>
+                                <th>Valor</th>
+                                <th>Antecipar</th>
+                                <th>Pagar</th>
+                                <th>Adiar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="conta:${listaContas}">
+                                <td th:text="${conta.id}"></td>
+                                <td th:text="${#temporals.format(conta.dataAgendada,'dd-MM-yyyy')}"></td>
+                                <td th:text="${#temporals.format(conta.dataNovoAgendamento,'dd-MM-yyyy')}"></td>
+                                <td th:text="${conta.descricao}"></td>
+                                <td th:text="${conta.valor}"></td>
+                                <td><a href="#"
+                                       th:href="@{|/contas/g_antecipar?id=${conta.id}&valor=${conta.valor}|}"
+                                       data-toggle="tooltip"
+                                       data-placement="left"
+                                       title="Antecipar Pagamento"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/icons8-antecipar-64.png"
+                                        alt="Antecipar Pagamento"
+                                        width="42" height="42"></a></td>
+                                <td><a href="#"
+                                       th:href="@{|/contas/g_pagar?id=${conta.id}&valor=${conta.valor}|}"
+                                       class="btn"
+                                       data-toggle="tooltip"
+                                       data-placement="left"
+                                       title="Efetuar Pagamento"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/icons8-pagar-64.png"
+                                        alt="Efetuar Pagamento" width="42"
+                                        height="42"></a></td>
+                                <td><a href="#"
+                                       th:href="@{|/contas/g_adiar?id=${conta.id}|}"
+                                       class="btn"
+                                       data-toggle="tooltip"
+                                       data-placement="left"
+                                       title="Adiar Pagamento"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/icons8-adiar-64.png"
+                                        alt="Adiar Pagamento" width="42"
+                                        height="42"></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+
+<script>
+    new DataTable('#tableEntrada', {
+        info: false,
+        ordering: true,
+        paging: false,
+        scrollY: 200
+    });
+    new DataTable('#tableSaida', {
+        info: false,
+        ordering: true,
+        paging: false,
+        scrollY: 200
+    });
+    new DataTable('#tableAgendamentos', {
+        info: false,
+        ordering: true,
+        paging: false,
+        scrollY: 350
+    });
+</script>
+</body>
+
+</html>

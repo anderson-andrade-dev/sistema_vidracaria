@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 offset-1">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col text-left font-weight-bold"><h5>
+                                Ferragens
+                                Cadastradas</h5>
+                            </div>
+                            <div class="col text-right">
+                                <a class="btn"
+                                   th:href="@{/produto/get_cadFerragem}"
+                                   role="button"
+                                   data-toggle="tooltip"
+                                   data-placement="left"
+                                   title="Cadastro Ferragem"><img
+                                        class="d-inline-block align-top"
+                                        src="/images/iconeAdicionar.png"
+                                        alt="Cadastro Ferragem"
+                                        width="64" height="64">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="" id="tableFerragem" name="tableFerragem">
+                            <thead>
+                            <tr>
+                                <th class="text-left">ID</th>
+                                <th class="text-left">Codigo Fabricante</th>
+                                <th class="text-left">Descrição de Uso</th>
+                                <th class="text-center">Preço</th>
+                                <th class="text-center">Alterar</th>
+                            </tr>
+                            </thead>
+                            <tbody class="text-center">
+                            <tr th:each="ferragem:${listaFerragens}">
+                                <td class="text-left"
+                                    th:text="${ferragem.id}"></td>
+                                <td class="text-left"
+                                    th:text="${ferragem.codigo}"></td>
+                                <td class="text-left"
+                                    th:text="${ferragem.descricao}"></td>
+                                <td class="text-left"
+                                    th:text="${ferragem.preco}"></td>
+                                <td class="text-center">
+                                    <a class="btn"
+                                       th:href="@{|/produto/get_alteraFerragem?id=${ferragem.id}|}"
+                                       role="button" data-toggle="tooltip"
+                                       data-placement="left"
+                                       title="Altera Ferragem">
+                                        <img class="d-inline-block align-top"
+                                             src="/images/iconeEditar.png"
+                                             alt="Alterar Ferragem" width="42"
+                                             height="42">
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+<script>new DataTable('#tableFerragem', {
+    info: false,
+    ordering: true,
+    paging: false,
+    scrollY: 250
+});</script>
+</body>
+
+</html>

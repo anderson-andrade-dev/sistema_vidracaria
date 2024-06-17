@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">Projeto</div>
+                    <div class="card-body" style="text-align: center"><img src="/images/projetos/portaAbrirBandeiraBasculante.png"></div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="altura">Altura</label>
+                    </div>
+                    <input type="text" class="form-control" id="altura" name="alturaBandeira">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="largura">Largura</label>
+                    </div>
+                    <input type="text" class="form-control" id="largura" name="alturaBandeira">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="quantidade">Quantidade</label>
+                    </div>
+                    <input type="text" class="form-control" id="quantidade" name="quantidade">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="vidro">Escolha o tipo de vidro</label>
+                    </div>
+                    <select class="custom-select " id="vidro">
+                        <option value="1">teste</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="ferragem">Escolha a cor da ferragem</label>
+                    </div>
+                    <select class="custom-select " id="ferragem">
+                        <option value="1">Branca</option>
+                        <option value="1">Preta</option>
+                        <option value="1">Cinza</option>
+                        <option value="1">Bronze</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="aluminio">Escolha a cor do Alumínio</label>
+                    </div>
+                    <select class="custom-select " id="aluminio">
+                        <option value="1">Branca</option>
+                        <option value="1">Preta</option>
+                        <option value="1">Cinza</option>
+                        <option value="1">Bronze</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div Class="row">
+                <div class="col-2">
+                    <button class="btn btn-outline-info">voltar</button>
+                </div>
+                <div class="col-8">
+                </div>
+                <div class="col-2" style="text-align: right">
+                    <button class="btn btn-outline-success">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+</body>
+</html>

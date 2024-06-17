@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <form action="#" method="post"
+                      th:action="@{/produto/alteraVidro}" id="formVidro"
+                      name="formVidro">
+                    <div class="form-group">
+                        <label for="nome">ID:</label>
+                        <input th:value="${vidro.id}" class="form-control"
+                               type="text" placeholder="ID do Vidro"
+                               id="id" name="id"
+                               required readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input th:value="${vidro.nome}" class="form-control"
+                               type="text" placeholder="Nome do Vidro"
+                               id="nome" name="nome"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="espessura">Espessura</label>
+                        <input th:value="${vidro.espessura}"
+                               class="form-control" type="number" min="2"
+                               max="20"
+                               placeholder="Espessura"
+                               id="espessura" name="espessura"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="preco">Preço</label>
+                        <input th:value="${vidro.preco}" class="form-control"
+                               type="text" placeholder="Vidro Temperado"
+                               id="preco"
+                               name="preco" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check-inline">
+                            <input th:checked="${vidro.isTemperado}"
+                                   class="form-check-input" type="checkbox"
+                                   placeholder="Vidro Temperado"
+                                   id="isTemperado"
+                                   name="isTemperado">
+                            <label class="form-check-label" for="isTemperado">Temperado</label>
+                        </div>
+                        <div th:checked="${vidro.isLaminado}"
+                             class="form-check-inline">
+                            <input class="form-check-input" type="checkbox"
+                                   placeholder="Vidro Laminado" id="isLaminado"
+                                   name="isLaminado">
+                            <label class="form-check-label" for="isLaminado">Laminado</label>
+                        </div>
+                    </div>
+                    <div class="">
+                        <input class="btn btn-primary" type="submit"
+                               value="Alterar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+</body>
+</html>

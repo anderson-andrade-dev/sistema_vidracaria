@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="html_head">
+    <title>[[${pageTitle}]] | Aurora-Sistema-Vidraçaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/puglins/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div th:fragment="html_nav">
+    <div class="container">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" th:href="@{/caixa/principal}">
+                <img src="/images/icons8-laptop-settings-64.png" width="30"
+                     height="30"
+                     class="d-inline-block align-top" alt="">Consultech
+            </a>
+            <ul class="nav ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Orçamentos</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/orcamento}">Novo</a>
+                        <a class="dropdown-item" th:href="@{#}">Aguardando
+                            Confirmação</a>
+                        <a class="dropdown-item" th:href="@{#}">Realizados</a>
+                        <a class="dropdown-item" th:href="@{#}">Canceladas</a>
+                        <a class="dropdown-item" th:href="@{#}">Gráficos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Vendas</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{#}">Realizadas</a>
+                        <a class="dropdown-item" th:href="@{#}">Canceladas</a>
+                        <a class="dropdown-item" th:href="@{#}">Gráficos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Cadastro</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item"
+                           th:href="@{/cliente}">Clientes</a>
+                        <a class="dropdown-item"
+                           th:href="@{/produto/get_listaFerragem}">Ferragens</a>
+                        <a class="dropdown-item"
+                           th:href="@{/produto/get_listaVidro}">Vidros</a>
+                        <a class="dropdown-item"
+                           th:href="@{/produto/get_listaPerfil}">Perfis</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item"
+                           th:href="@{/usuario}">Usuarios</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown"
+                       href="#" role="button"
+                       aria-haspopup="true" aria-expanded="false">Financeiro</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/caixa/principal}">Caixa</a>
+                        <a class="dropdown-item" th:href="@{/caixa/ent}">Entradas</a>
+                        <a class="dropdown-item"
+                           th:href="@{/caixa/sai}">Saidas</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sair</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<div th:fragment="html_footer">
+    <footer class="bg-body-tertiary text-center text-lg-start">
+        <div class="text-center p-3" style="background-color: #e3f2fd;">
+            © 2024 Copyright:
+            <a class="text-body" href="#">Sistema Vidraçaria</a>
+        </div>
+    </footer>
+    <script src="/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/puglins/datatables.min.js"></script>
+</div>
+
+</body>
+
+</html>

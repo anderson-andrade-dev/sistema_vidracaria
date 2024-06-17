@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{template :: html_head}"/>
+
+<body>
+<div th:replace="~{template :: html_nav}"></div>
+<section>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-md-3">
+                <form action="#" method="post" th:action="@{pagar}"
+                      id="formPagar" name="formPagar">
+                    <div class="form-group">
+                        <label for="valor">Id</label>
+                        <input class="form-control" type="text"
+                               placeholder="Id Conta" id="id" name="id"
+                               hidden th:value="${id}" th:text="${id}">
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Valor Principal</label>
+                        <input th:value="${valor}" th:text="${valor}"
+                               class="form-control" type="text"
+                               placeholder="Valor Principal" id="valor"
+                               name="valor"
+                               required hidden>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Desconto</label>
+                        <input class="form-control" type="text"
+                               placeholder="desconto" id="valor" name="desconto"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="valor">Juros</label>
+                        <input class="form-control" type="text"
+                               placeholder="juros" id="valor" name="juros"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <label for="responsavel">Responsável</label>
+                        <input class="form-control" type="text"
+                               placeholder="Responsável" id="responsavel"
+                               name="responsavel" required>
+                    </div>
+                    <div class="">
+                        <input class="btn btn-primary" type="submit"
+                               value="Pagar">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<br>
+<div class="container">
+    <div th:replace="~{template :: html_footer}"></div>
+</div>
+
+</body>
+
+</html>
